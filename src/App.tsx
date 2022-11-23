@@ -15,6 +15,7 @@ import {
 import { dataProvider, liveProvider } from "@pankod/refine-supabase";
 import routerProvider from "@pankod/refine-react-router-v6";
 import { supabaseClient } from "utility";
+import { PostList } from "pages/posts";
 import { ColorModeContextProvider } from "contexts";
 import authProvider from "./authProvider";
 
@@ -27,6 +28,7 @@ function App() {
         <Refine
           dataProvider={dataProvider(supabaseClient)}
           liveProvider={liveProvider(supabaseClient)}
+          options={{ liveMode: "auto" }}
           authProvider={authProvider}
           routerProvider={{
             ...routerProvider,
@@ -56,13 +58,17 @@ function App() {
               ]}
               formProps={{
                 defaultValues: {
-                  email: "info@refine.dev",
-                  password: "refine-supabase",
+                  email: "",
+                  password: "",
                 },
               }}
             />
           )}
           notificationProvider={notificationProvider}
+          resources={[
+            { name: "arrivals", list: PostList },
+            { name: "departures", list: PostList },
+          ]}
           Layout={Layout}
           ReadyPage={ReadyPage}
           catchAll={<ErrorComponent />}
