@@ -15,7 +15,7 @@ import {
 import { dataProvider, liveProvider } from "@pankod/refine-supabase";
 import routerProvider from "@pankod/refine-react-router-v6";
 import { supabaseClient } from "utility";
-import { PostList } from "pages/posts";
+import { PostList, PostShow } from "pages/posts";
 import { ColorModeContextProvider } from "contexts";
 import authProvider from "./authProvider";
 
@@ -66,7 +66,7 @@ function App() {
           )}
           notificationProvider={notificationProvider}
           resources={[
-            { name: "arrivals", list: PostList },
+            { name: "arrivals", list: PostList, show: PostShow },
             { name: "departures", list: PostList },
           ]}
           Layout={Layout}

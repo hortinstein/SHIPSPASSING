@@ -4,6 +4,7 @@ import {
   DataGrid,
   GridColumns,
   TagField,
+  ShowButton,
   DateField,
   List,
 } from "@pankod/refine-mui";
@@ -14,7 +15,7 @@ const columns: GridColumns<IShip> = [
   {
     field: "epoch",
     headerName: "Epoch",
-    minWidth: 75,
+    minWidth: 175,
     flex: 1,
     renderCell: function render(params) {
       return <TagField value={params.row.epoch} />;
@@ -23,7 +24,7 @@ const columns: GridColumns<IShip> = [
   {
     field: "datestring",
     headerName: "Date",
-    minWidth: 75,
+    minWidth: 175,
     flex: 1,
     renderCell: function render(params) {
       return <TagField value={params.row.datestring} />;
@@ -32,7 +33,7 @@ const columns: GridColumns<IShip> = [
   {
     field: "name",
     headerName: "Name",
-    minWidth: 75,
+    minWidth: 175,
     flex: 1,
     renderCell: function render(params) {
       return <TagField value={params.row.name} />;
@@ -41,10 +42,18 @@ const columns: GridColumns<IShip> = [
   {
     field: "population",
     headerName: "Population",
-    minWidth: 75,
+    minWidth: 175,
     renderCell: function render(params) {
       console.log(params);
       return <TagField value={params.row.population} />;
+    },
+  },
+  {
+    headerName: "Actions",
+    field: "actions",
+    minWidth: 250,
+    renderCell: function render(params) {
+      return <ShowButton hideText recordItemId={params.row.id} />;
     },
   },
 ];
