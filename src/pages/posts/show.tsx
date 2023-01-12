@@ -1,14 +1,21 @@
-import { useOne, useShow } from "@pankod/refine-core";
+import { useCreate, useShow } from "@pankod/refine-core";
 import { Show, Stack, Typography, TagField } from "@pankod/refine-mui";
 
-import { IShip } from "interfaces";
+import { IShip, IShipInfo } from "interfaces";
 
 export const PostShow: React.FC = () => {
   const { queryResult } = useShow<IShip>();
-
+  const { mutate } = useCreate();
+  mutate({
+    resource: "CRUISEHER",
+    values: {
+      name: "boatname",
+    },
+  });
+  // const shipRecord = CRUISEHERINFO.data;
+  // console.log(shipRecord);
   const { data, isLoading } = queryResult;
   const record = data?.data;
-
   return (
     <Show isLoading={isLoading}>
       <Stack gap={1}>

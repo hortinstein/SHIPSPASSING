@@ -7,3 +7,7 @@ export interface IShip {
   datestring: string;
   epoch: number;
 }
+
+export interface IShipInfo {
+  message: message
+}
