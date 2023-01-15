@@ -39,7 +39,7 @@ axiosInstance.interceptors.request.use(
     request.headers = {
       Authorization: `Bearer ${token}`,
     };
-    console.log(request.headers);
+    console.log(request.headers, request.data);
     return request;
   }
 );
@@ -94,8 +94,8 @@ function App() {
           )}
           notificationProvider={notificationProvider}
           resources={[
-            { name: "arrivals", list: PostList },
-            { name: "departures", list: PostList },
+            { name: "arrivals", list: PostList, show: PostShow },
+            { name: "departures", list: PostList, show: PostShow },
             {
               name: "CRUISEHER",
               options: {

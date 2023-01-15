@@ -4,18 +4,18 @@ import { Show, Stack, Typography, TagField } from "@pankod/refine-mui";
 import { IShip, IShipInfo } from "interfaces";
 
 export const PostShow: React.FC = () => {
+  // const { mutate } = useCreate();
+  // mutate({
+  //   resource: "CRUISEHER",
+  //   values: {
+  //     name: "boatname",
+  //   },
+  // });
   const { queryResult } = useShow<IShip>();
-  const { mutate } = useCreate();
-  mutate({
-    resource: "CRUISEHER",
-    values: {
-      name: "boatname",
-    },
-  });
   // const shipRecord = CRUISEHERINFO.data;
-  // console.log(shipRecord);
   const { data, isLoading } = queryResult;
   const record = data?.data;
+  console.log("called the record show for", record?.name);
   return (
     <Show isLoading={isLoading}>
       <Stack gap={1}>
