@@ -13,7 +13,7 @@ import {
 } from "@pankod/refine-mui";
 
 import { dataProvider, liveProvider } from "@pankod/refine-supabase";
-import dataProviderRest from "@pankod/refine-simple-rest";
+import { dataProvider as dataProviderRest } from "./rest-data-provider";
 import routerProvider from "@pankod/refine-react-router-v6";
 import { supabaseClient } from "utility";
 import { PostList, PostShow } from "pages/posts";
